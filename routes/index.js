@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 
 const bcrypt = require('bcryptjs');
-const Admin = require('../Models/Admin');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {

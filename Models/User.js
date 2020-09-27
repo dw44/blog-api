@@ -17,6 +17,11 @@ const UserSchema = new Schema({
     type: String,
     required: true,
     min: 6
+  },
+  admin: {
+    type: Boolean,
+    required: true,
+    default: false
   }
 });
 
