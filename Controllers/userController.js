@@ -14,12 +14,11 @@ exports.createUserPOST = async (req, res, next) => {
   const salt = await bcrypt.genSalt(10);
   const hashedPassword = await bcrypt.hash(req.body.password, salt);
 
-  const isAdmin = (req.body.createAdminCode === process.env.CREATE_ADMIN_SECRET ? true : false);
   const user = new User({
     name: req.body.name,
     email: req.body.email,
     password: hashedPassword,
-    admin: isAdmin
+    admin: false
   });
 
   try {

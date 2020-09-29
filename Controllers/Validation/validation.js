@@ -12,9 +12,7 @@ exports.registerValidation = data => {
     .email(),
   password: Joi.string()
     .min(6)
-    .required(),
-  createAdminCode: Joi.string()
-    .min(0)
+    .required()
   });
   return schema.validate(data);
 };
