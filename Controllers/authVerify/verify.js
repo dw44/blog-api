@@ -21,6 +21,7 @@ function verifyAdmin (req, res, next) {
   try {
     const verified = jwt.verify(token, process.env.TOKEN_SECRET);
     if (verified.admin) {
+      req.user = verified;
       next();
     } else {
       res.send('Admin access only')

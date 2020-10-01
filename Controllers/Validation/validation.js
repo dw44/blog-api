@@ -29,3 +29,16 @@ exports.loginValidation = data => {
   });
   return schema.validate(data);
 };
+
+exports.newPostValidation = data => {
+  const schema = Joi.object({
+    title: Joi.string()
+      .min(3)
+      .max(30)
+      .required(),
+    postBody: Joi.string()
+      .min(1)
+      .required()
+  });
+  return schema.validate(data);
+}

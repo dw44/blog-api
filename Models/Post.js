@@ -18,10 +18,20 @@ const PostSchema = new Schema({
     default: new Date(),
     required: true
   },
+  postedBy: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+  },
+  comments: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Comment',
+    required: false
+  }],
   lastEdited: {
     type: Date,
     required: false
-  }
+  },
 });
 
 module.exports = mongoose.model('Post', PostSchema);
